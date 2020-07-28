@@ -1,9 +1,11 @@
 <div class='container-fluid'>
+
   <div class="row p-4">
     <div class="col">
       <p class="text-center">Answers for this question</p>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
     </div>
@@ -31,13 +33,6 @@
     <div class="col">
     </div>
     <div class="col-6 p-4">
-      <%# <div class="media">
-        <img src="http://www.gravatar.com/avatar/424242" class="mr-3" alt="avatar">
-        <div class="media-body">
-          <h5 class="mt-0 ">user@mail.com Answers:</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </div>
-      </div> %>
 
       <% @question.answers.each do |a| %>
         <div class="media mb-2">
@@ -55,5 +50,8 @@
     </div>
   </div>
 
+  <% if @question.answers.empty? %>
+    <div class="alert alert-info">Waiting for answers!</div>
+  <% end %>
 
 </div>
