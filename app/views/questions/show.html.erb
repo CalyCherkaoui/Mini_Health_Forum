@@ -1,0 +1,57 @@
+<div class='container-fluid'>
+
+  <div class="row p-4">
+    <div class="col">
+      <p class="text-center">Answers for this question</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-10 p-4">
+      <div class="media mb-2">
+        <img src="<%= @question.gravatar %>" class="mr-3" alt="avatar">
+        <div class="media-body">
+          <h5 class="mt-0 mb-0"><%= @question.email %> asked:</h5>
+              <div class="text-secondary"><%= time_ago_in_words @question.created_at %> ago ..</div>
+              <%= @question.body %>
+        </div>
+      </div>
+      <a href="/questions/12" type="button" class="btn btn-outline-dark btn-sm btn-block" data-toggle="modal" data-target="#answerModal">
+        Clic here to answer this question
+      </a>
+
+      <%= render 'home/new_answer_form'%>
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 p-4">
+
+      <% @answers.each do |a| %>
+        <div class="media mb-2">
+            <img src="<%= a.gravatar %>" class="mr-3" alt="avatar">
+            <div class="media-body">
+              <h5 class="mt-0 mb-0"><%= a.email %> answered:</h5>
+              <div class="text-secondary"><%= time_ago_in_words a.created_at %> ago ..</div>
+              <%= a.body %>
+            </div>
+        </div>
+      <% end %>
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+  <% if @question.answers.empty? %>
+    <div class="alert alert-info">Waiting for answers!</div>
+  <% end %>
+
+</div>

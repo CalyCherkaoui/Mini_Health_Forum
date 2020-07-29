@@ -1,0 +1,11 @@
+{
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "workbench.preferredHighContrastColorTheme": "Solarized Dark",
+  "workbench.preferredLightColorTheme": "Abyss",
+  "workbench.sideBar.location": "left",
+  "workbench.settings.openDefaultSettings": true,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.restore": true,
+  "screencastMode.fontSize": 35,
+  "screencastMode.onlyKeyboardShortcuts": true
+}
