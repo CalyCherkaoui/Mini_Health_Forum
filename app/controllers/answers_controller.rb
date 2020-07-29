@@ -3,8 +3,10 @@ class AnswersController < ApplicationController
   def create
 
     question = Question.find(params[:answer][:question_id])
-    question.answers.create(answer_params)
+    answer = question.answers.create(answer_params)
 
+    # whene we create an answer an email is sent to the questioner prepare the email then send it
+    MainMailer.notify_question_author(answer).deliver_now
 
     # using coockies to remember data entred by a current user of the browser
     session[:current_user_email] = answer_params[:email]
